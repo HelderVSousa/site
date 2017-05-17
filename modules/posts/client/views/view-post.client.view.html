@@ -3,7 +3,20 @@
     <h1><span ng-bind="vm.post.title"></span> <small>Posted in {{vm.post.category}}</small></h1>
     <div ng-bind="vm.post.body"></div>
     <br>
-    <p>Tags: <strong>{{vm.post.tags}}</strong></p>
+    <iframe src="https://kstateome.github.io/canvas-countdown-clock/dark_countdown.html"
+        width="100%"
+        height="180"
+        style="border:0;"
+        name="countdownWidget"></iframe>
+         <iframe src="file:///home/hvsousa/Desktop/countdown.html/?days={{vm.post.timer.days}}?hours={{vm.post.timer.hours}}?minutes={{vm.post.timer.minutes}}?seconds={{vm.post.timer.seconds}}"
+        width="100%"
+        height="180"
+        style="border:0;"
+        name="countdownWidget"></iframe>
+
+    <timer interval="1000">{{vm.post.timer.hours}} hour{{vm.post.timer.hoursS}}, {{vm.post.timer.minutes}} minute{{vm.post.timer.minutesS}}, {{vm.post.timer.seconds}} seconds</timer>
+    <br> 
+    <div class="powr-countdown-timer" id="ff68f32c_1495012833"></div>
   </div>
   <div class="pull-right"
        ng-show="vm.post.isCurrentUserOwner">
@@ -27,3 +40,4 @@
   </small>
   <p class="lead" ng-bind="vm.post.content"></p>
 </section>
+ <script src="//www.powr.io/powr.js" external-type="html"></script>

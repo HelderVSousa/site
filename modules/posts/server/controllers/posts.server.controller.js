@@ -38,6 +38,13 @@ exports.read = function(req, res) {
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
   post.isCurrentUserOwner = req.user && post.user && post.user._id.toString() === req.user._id.toString();
 
+  post.timer = {
+    days: 12,
+    hours: 23,
+    minutes: 30,
+    seconds: 45
+  };
+
   res.jsonp(post);
 };
 
@@ -111,6 +118,7 @@ exports.postByID = function(req, res, next, id) {
         message: 'No Post with that identifier has been found'
       });
     }
+      
     req.post = post;
     next();
   });

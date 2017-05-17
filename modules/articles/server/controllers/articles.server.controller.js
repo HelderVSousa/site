@@ -104,6 +104,13 @@ exports.articleByID = function (req, res, next, id) {
         message: 'No article with that identifier has been found'
       });
     }
+      article.timer = {
+        days: 1,
+        hours: 23,
+        minutes: 12,
+        seconds: 12
+      };
+    console.log(article)
     req.article = article;
     next();
   });
